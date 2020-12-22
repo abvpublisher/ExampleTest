@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "rzMeYsZV3gUQ8QZUwClEtYjatvdBBH5cP5JU2P8K4E4gWsIGyoEPDqLhxivPGXlnb0hiianNZ+eq15sCjHh5CQ==",
+  "success": true,
+  "projectFilePath": "D:\\bj\\bj\\bj\\bj.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\plugin.permissions\\6.0.1\\plugin.permissions.6.0.1.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\syncfusion.licensing\\18.3.0.53\\syncfusion.licensing.18.3.0.53.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\syncfusion.xamarin.buttons\\18.3.0.53\\syncfusion.xamarin.buttons.18.3.0.53.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\syncfusion.xamarin.core\\18.3.0.53\\syncfusion.xamarin.core.18.3.0.53.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\syncfusion.xamarin.gridcommon\\18.3.0.53\\syncfusion.xamarin.gridcommon.18.3.0.53.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\syncfusion.xamarin.sfcombobox\\18.3.0.53\\syncfusion.xamarin.sfcombobox.18.3.0.53.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\syncfusion.xamarin.sfdatagrid\\18.3.0.53\\syncfusion.xamarin.sfdatagrid.18.3.0.53.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\syncfusion.xamarin.sfnumerictextbox\\18.3.0.53\\syncfusion.xamarin.sfnumerictextbox.18.3.0.53.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\xamarin.forms\\4.8.0.1687\\xamarin.forms.4.8.0.1687.nupkg.sha512"
+  ],
+  "logs": []
+}

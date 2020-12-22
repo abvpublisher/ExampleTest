@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bj.Views.ItemsPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:bj.ViewModels"  
+             xmlns:model="clr-namespace:bj.Models" xmlns:sfGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" xmlns:sfPager="clr-namespace:Syncfusion.SfDataGrid.XForms.DataPager;assembly=Syncfusion.SfDataGrid.XForms"
+             x:Name="BrowseItemsPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Обновить" Command="{Binding LoadItemsCommand}" />
+        <ToolbarItem Text="Добавить" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Padding="5">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Режим доступа:" TextColor="Gray" VerticalTextAlignment="Center"></Label>
+                    <Label Text="{Binding UserType}" TextColor="Red"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Всего задач:" TextColor="Gray" VerticalTextAlignment="Center"></Label>
+                    <Label Text="{Binding TotalTaskCount}" TextColor="Black"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Всего страниц:" TextColor="Gray" VerticalTextAlignment="Center"></Label>
+                    <Label Text="{Binding TotalPagesCount}" TextColor="Black"></Label>
+                </StackLayout>
+                <!--<CollectionView ItemsSource="{Binding PageItems}" ItemsLayout="HorizontalList" HeightRequest="50" SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="15">
+                                <Label Text="{Binding Name}"></Label>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>-->
+                <Picker Title="выбор страницы..." ItemsSource = "{Binding PageItems}" SelectedItem="{Binding IdPage}" ItemDisplayBinding="{Binding Name}" TextColor="Black"></Picker>
+                <Picker Title="сортировка по..." ItemsSource = "{Binding SortItems}" SelectedItem="{Binding IdSort}" ItemDisplayBinding="{Binding Name}" TextColor="Black"></Picker>
+                <Picker Title="направление сортировки..." ItemsSource = "{Binding SortDirectionItems}" SelectedItem="{Binding IdSortDirection}" ItemDisplayBinding="{Binding Name}" TextColor="Black"></Picker>
+                <Label Text="Редактирование - Login+DoubleTapped" TextColor="Red"></Label>
+            </StackLayout>                   
+
+            <sfGrid:SfDataGrid x:Name="sfDataGrid" Grid.Row="1" IsVisible="True" RowHeight="40" HeaderRowHeight="40" AllowEditing="False" GridDoubleTapped="sfDataGrid_GridDoubleTapped"
+                                            AllowResizingColumn="True" ColumnSizer="Star" AllowSorting="True" AllowTriStateSorting="True" SelectionMode="Single" RowSpacing="0" ShowColumnWhenGrouped="False" AllowGroupExpandCollapse="True" AutoExpandGroups="False" GroupCaptionTextFormat="{}{}{Key}" GroupingMode="Single"
+                                            AutoGenerateColumns="False" VerticalOptions="FillAndExpand" VerticalOverScrollMode="None" HorizontalOptions="FillAndExpand"
+                                            ItemsSource="{Binding ItemsSourses}" AllowPullToRefresh="False" EnableDataVirtualization="False" ShowRowHeader="False" AllowSwiping="False">
+
+                <sfGrid:SfDataGrid.Columns x:TypeArguments="syncfusion:Columns">
+
+                    <sfGrid:GridTextColumn HeaderText="имя пользователя" MappingName="username" Width="120" HeaderFontAttribute="Bold" FontAttribute="None" TextAlignment="Start"/>
+                    <sfGrid:GridTextColumn HeaderText="email" MappingName="email" HeaderFontAttribute="Bold" FontAttribute="None" TextAlignment="Start"/>
+                    <sfGrid:GridTextColumn HeaderText="текст задачи" AllowSorting="False" MappingName="text" HeaderFontAttribute="Bold" FontAttribute="None" TextAlignment="Start"/>
+                    <sfGrid:GridSwitchColumn HeaderText="статус" MappingName="Status" HeaderFontAttribute="Bold" FontAttribute="None" Width="40" AllowEditing="False" TextAlignment="Start"/>
+                    <sfGrid:GridSwitchColumn HeaderText="ОА" MappingName="IsEditAdmin" HeaderFontAttribute="Bold" FontAttribute="None" Width="35" AllowEditing="False" TextAlignment="Start"/>
+                    <sfGrid:GridTextColumn HeaderText="id" MappingName="id" IsHidden="True" HeaderFontAttribute="Bold" FontAttribute="None" TextAlignment="Start"/>
+                    
+                    <!--<sfGrid:GridImageColumn HeaderText="img" MappingName="image_path" HeaderFontAttribute="Bold" FontAttribute="None" TextAlignment="Start"/>-->
+
+                </sfGrid:SfDataGrid.Columns>
+
+            </sfGrid:SfDataGrid>
+
+        </Grid>
+        
+    </RefreshView>
+</ContentPage>
